@@ -15,25 +15,21 @@ export const personFixtures = {
   executives: {
     ceo: (): E2ETestPerson => E2EPersonFactory.createExecutive({
       job_title: 'Chief Executive Officer',
-      department: 'Executive',
       seniority: 'C-Level'
     }),
 
     cto: (): E2ETestPerson => E2EPersonFactory.createExecutive({
       job_title: 'Chief Technology Officer',
-      department: 'Technology',
       seniority: 'C-Level'
     }),
 
     cfo: (): E2ETestPerson => E2EPersonFactory.createExecutive({
       job_title: 'Chief Financial Officer',
-      department: 'Finance',
       seniority: 'C-Level'
     }),
 
     vp: (): E2ETestPerson => E2EPersonFactory.createExecutive({
       job_title: 'Vice President of Sales',
-      department: 'Sales',
       seniority: 'VP'
     })
   },
@@ -99,19 +95,16 @@ export const personFixtures = {
   marketing: {
     manager: (): E2ETestPerson => E2EPersonFactory.create({
       job_title: 'Marketing Manager',
-      department: 'Marketing',
       seniority: 'Manager'
     }),
 
     specialist: (): E2ETestPerson => E2EPersonFactory.create({
       job_title: 'Digital Marketing Specialist',
-      department: 'Marketing',
       seniority: 'Mid-level'
     }),
 
     director: (): E2ETestPerson => E2EPersonFactory.create({
       job_title: 'Director of Marketing',
-      department: 'Marketing',
       seniority: 'Director'
     })
   },
@@ -122,19 +115,16 @@ export const personFixtures = {
   product: {
     manager: (): E2ETestPerson => E2EPersonFactory.create({
       job_title: 'Product Manager',
-      department: 'Product',
       seniority: 'Manager'
     }),
 
     owner: (): E2ETestPerson => E2EPersonFactory.create({
       job_title: 'Product Owner',
-      department: 'Product',
       seniority: 'Senior'
     }),
 
     designer: (): E2ETestPerson => E2EPersonFactory.create({
       job_title: 'UX/UI Designer',
-      department: 'Design',
       seniority: 'Mid-level'
     })
   },
@@ -145,19 +135,16 @@ export const personFixtures = {
   operations: {
     manager: (): E2ETestPerson => E2EPersonFactory.create({
       job_title: 'Operations Manager',
-      department: 'Operations',
       seniority: 'Manager'
     }),
 
     analyst: (): E2ETestPerson => E2EPersonFactory.create({
       job_title: 'Business Analyst',
-      department: 'Operations',
       seniority: 'Mid-level'
     }),
 
     coordinator: (): E2ETestPerson => E2EPersonFactory.create({
       job_title: 'Operations Coordinator',
-      department: 'Operations',
       seniority: 'Junior'
     })
   },
@@ -168,19 +155,16 @@ export const personFixtures = {
   support: {
     hr: (): E2ETestPerson => E2EPersonFactory.create({
       job_title: 'HR Manager',
-      department: 'Human Resources',
       seniority: 'Manager'
     }),
 
     finance: (): E2ETestPerson => E2EPersonFactory.create({
       job_title: 'Financial Analyst',
-      department: 'Finance',
       seniority: 'Mid-level'
     }),
 
     legal: (): E2ETestPerson => E2EPersonFactory.create({
       job_title: 'Legal Counsel',
-      department: 'Legal',
       seniority: 'Senior'
     })
   }
@@ -200,7 +184,6 @@ export const personScenarios = {
     vpSales: personFixtures.executives.vp(),
     vpMarketing: E2EPersonFactory.createExecutive({
       job_title: 'Vice President of Marketing',
-      department: 'Marketing',
       seniority: 'VP'
     })
   }),
@@ -218,7 +201,6 @@ export const personScenarios = {
     ],
     engineers: E2EPersonFactory.createMany(4, {
       job_title: 'Software Engineer',
-      department: 'Engineering',
       seniority: 'Mid-level'
     }),
     intern: personFixtures.engineering.intern()
@@ -235,12 +217,10 @@ export const personScenarios = {
     ],
     reps: E2EPersonFactory.createMany(6, {
       job_title: 'Account Executive',
-      department: 'Sales',
       seniority: 'Mid-level'
     }),
     sdrs: E2EPersonFactory.createMany(4, {
       job_title: 'Sales Development Representative',
-      department: 'Sales',
       seniority: 'Junior'
     })
   }),
@@ -251,7 +231,6 @@ export const personScenarios = {
   projectTeam: () => ({
     projectManager: E2EPersonFactory.create({
       job_title: 'Senior Project Manager',
-      department: 'Product',
       seniority: 'Senior'
     }),
     productManager: personFixtures.product.manager(),
@@ -259,12 +238,10 @@ export const personScenarios = {
     designer: personFixtures.product.designer(),
     engineers: E2EPersonFactory.createMany(3, {
       job_title: 'Software Engineer',
-      department: 'Engineering',
       seniority: 'Mid-level'
     }),
     qa: E2EPersonFactory.create({
       job_title: 'QA Engineer',
-      department: 'Quality Assurance',
       seniority: 'Mid-level'
     })
   }),
@@ -275,7 +252,6 @@ export const personScenarios = {
   relationshipTesting: () => ({
     manager: personFixtures.engineering.manager(),
     directReports: E2EPersonFactory.createMany(5, {
-      department: 'Engineering',
       seniority: 'Mid-level'
     }),
     peers: E2EPersonFactory.createMany(3, {
@@ -296,29 +272,24 @@ export const personScenarios = {
     E2EPersonFactory.createEngineer({
       name: 'E2E Alice Anderson',
       job_title: 'Senior Full Stack Developer',
-      department: 'Engineering'
     }),
     E2EPersonFactory.createEngineer({
       name: 'E2E Bob Bennett',
       job_title: 'DevOps Engineer',
-      department: 'Infrastructure'
     }),
     E2EPersonFactory.createEngineer({
       name: 'E2E Carol Chen',
       job_title: 'Machine Learning Engineer',
-      department: 'AI Research'
     }),
 
     // Sales roles
     E2EPersonFactory.createSalesPerson({
       name: 'E2E David Davis',
       job_title: 'Enterprise Account Executive',
-      department: 'Sales'
     }),
     E2EPersonFactory.createSalesPerson({
       name: 'E2E Emma Evans',
       job_title: 'Inside Sales Representative',
-      department: 'Sales'
     }),
 
     // Marketing roles
@@ -349,7 +320,6 @@ export const edgeCasePeople = {
   specialCharacters: (): E2ETestPerson => E2EPersonFactory.create({
     name: 'E2E José María O\'Connor-Smith Jr.',
     job_title: 'VP of R&D (Research & Development)',
-    department: 'R&D',
     phone_numbers: ['+1-555-123-4567 ext. 890']
   }),
 
@@ -359,7 +329,6 @@ export const edgeCasePeople = {
   longFields: (): E2ETestPerson => E2EPersonFactory.create({
     name: 'E2E Very Long Person Name That Exceeds Normal Length Expectations',
     job_title: 'Senior Vice President of Global Strategic Business Development and Partnership Operations',
-    department: 'Strategic Business Development and Partnership Operations'
   }),
 
   /**
@@ -368,7 +337,6 @@ export const edgeCasePeople = {
   unicode: (): E2ETestPerson => E2EPersonFactory.create({
     name: 'E2E 张小明 (Zhang Xiaoming) 👨‍💻',
     job_title: 'Software Engineer 🚀',
-    department: 'Engineering 💻'
   }),
 
   /**
@@ -395,7 +363,6 @@ export const edgeCasePeople = {
     email_addresses: ['nullish@e2e-test.example.com'],
     phone_numbers: undefined,
     job_title: null as any,
-    department: '',
     seniority: undefined
   })
 };
@@ -409,7 +376,6 @@ export const performancePeople = {
    */
   generateBatch: (count: number = 100): E2ETestPerson[] => {
     return E2EPersonFactory.createMany(count, {
-      department: 'Batch Testing Department',
       seniority: 'Batch Test Role'
     });
   },
@@ -427,11 +393,11 @@ export const performancePeople = {
   },
 
   /**
-   * Generate people for different departments
+   * Generate people by job function
    */
-  generateByDepartment: (department: string, count: number = 10): E2ETestPerson[] => {
+  generateByJobFunction: (jobTitlePrefix: string, count: number = 10): E2ETestPerson[] => {
     return E2EPersonFactory.createMany(count, {
-      department,
+      job_title: `${jobTitlePrefix} Specialist`,
       seniority: 'Mid-level'
     });
   }
